@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +49,7 @@ Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.ima
 
 
 // Admin All Route
-Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
-Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
-Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
+
 
 
 
@@ -65,3 +63,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+
+//for slider route
+Route::get('/slider/all', [SliderController::class, 'AllSlider'])->name('all.slider');
+Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
+Route::post('/slider/add', [SliderController::class, 'StoreSlider'])->name('store.slider');
+Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
+Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
+Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
