@@ -41,7 +41,7 @@ class SliderController extends Controller
          ]);
  
  
-         return Redirect()->route('home.slider')->with('success', 'Slider Inserted Successfull');
+         return Redirect()->route('all.slider')->with('success', 'Slider Inserted Successfull');
     }
 
     public function Edit($id){

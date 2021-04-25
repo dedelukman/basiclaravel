@@ -175,4 +175,11 @@ class BrandController extends Controller
         return Redirect()->route('login')->with('success', 'User Logout');
     }
 
+     //This for  Portfolio All Methods
+     public function Portfolio(){
+        $images = Multipic::all();
+    
+        return view('admin.portfolio.index', compact('images'));
+    }
+
 }

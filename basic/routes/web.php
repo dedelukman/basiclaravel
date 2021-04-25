@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,10 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    return view('home', compact('brands'));
+    $abouts = DB::table('home_abouts')->first();
+    $servis = DB::table('servis')->first();
+    $portfolios = DB::table('multipics')->get();
+    return view('home', compact('brands','abouts','servis','portfolios'));
 });
 
 //Category Controller
@@ -46,6 +51,7 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 //Multi Image Route
 Route::get('/multi/image', [BrandController::class, 'Multipic'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
+Route::get('/home/portfolio', [BrandController::class, 'Portfolio'])->name('home.portfolio');
 
 
 // Admin All Route
@@ -72,3 +78,20 @@ Route::post('/slider/add', [SliderController::class, 'StoreSlider'])->name('stor
 Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
 Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
 Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
+
+//Home About
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::post('/about/add', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'Edit']);
+Route::post('/about/update/{id}', [AboutController::class, 'Update']);
+Route::get('/about/delete/{id}', [AboutController::class, 'Delete']);
+
+
+//Home Service
+Route::get('/home/servis', [ServisController::class, 'HomeServis'])->name('home.servis');
+Route::get('/add/servis', [ServisController::class, 'AddServis'])->name('add.servis');
+Route::post('/servis/add', [ServisController::class, 'StoreServis'])->name('store.servis');
+Route::get('/servis/edit/{id}', [ServisController::class, 'Edit']);
+Route::post('/servis/update/{id}', [ServisController::class, 'Update']);
+Route::get('/servis/delete/{id}', [ServisController::class, 'Delete']);
