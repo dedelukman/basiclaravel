@@ -95,3 +95,6 @@ Route::post('/servis/add', [ServisController::class, 'StoreServis'])->name('stor
 Route::get('/servis/edit/{id}', [ServisController::class, 'Edit']);
 Route::post('/servis/update/{id}', [ServisController::class, 'Update']);
 Route::get('/servis/delete/{id}', [ServisController::class, 'Delete']);
+
+//Portfolio page
+Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
