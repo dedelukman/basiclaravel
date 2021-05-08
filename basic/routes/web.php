@@ -8,6 +8,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServisController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,3 +100,22 @@ Route::get('/servis/delete/{id}', [ServisController::class, 'Delete']);
 
 //Portfolio page
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+
+//Contact page
+Route::get('/contact', [ContactController::class, 'Profile'])->name('contact');
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/add/contact', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::post('/contact/add', [ContactController::class, 'StoreContact'])->name('store.contact');
+Route::get('/contact/edit/{id}', [ContactController::class, 'Edit']);
+Route::post('/contact/update/{id}', [ContactController::class, 'Update']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'Delete']);
+Route::get('/contact/message', [ContactController::class, 'MessageContact'])->name('contact.message');
+Route::post('/message/add', [ContactController::class, 'StoreMessage'])->name('store.message');
+Route::get('/message/delete/{id}', [ContactController::class, 'DeleteMessage']);
+
+//Profile page
+Route::get('/admin/password/change', [ProfileController::class, 'Password'])->name('admin.password');
+Route::post('/password/update', [ProfileController::class, 'UpdatePassword'])->name('password.update');
+Route::get('/profile/update', [ProfileController::class, 'Profile'])->name('profile.update');
+Route::post('/user/password/update', [ProfileController::class, 'UpdateProfile'])->name('user.password.update');

@@ -38,6 +38,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="{{asset('backend/assets/plugins/nprogress/nprogress.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
 
   
 
@@ -104,6 +105,28 @@
 <script src="{{asset('backend/assets/js/date-range.js')}}"></script>
 <script src="{{asset('backend/assets/js/map.js')}}"></script>
 <script src="{{asset('backend/assets/js/custom.js')}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+
+        <script>
+            @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info')}}"
+            switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+            }
+            @endif
+        </script>
 
 
 

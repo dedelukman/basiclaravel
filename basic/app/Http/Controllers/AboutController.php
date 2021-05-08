@@ -66,7 +66,7 @@ class AboutController extends Controller
 
 
     public function Portfolio(){
-        $portfolios = Multipic::all();
-        return view('pages.portfolio', compact('portfolios'));
+        $images = Multipic::all();
+        return view('pages.portfolio', compact('images'));
     }
 }
