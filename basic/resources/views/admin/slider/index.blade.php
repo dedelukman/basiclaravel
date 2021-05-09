@@ -87,8 +87,8 @@
 			</div>
 
 			<div class="card-body">
-				<div class="responsive-data-table">
-                <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
+				<div >
+                <table id="responsive-data-table1" class="table dt-responsive nowrap" style="width:100%">
                         <thead>
                         <tr>
                             <th>First name</th>
