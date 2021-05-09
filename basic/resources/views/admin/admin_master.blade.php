@@ -29,6 +29,10 @@
   <!-- FAVICON -->
   <link href="{{asset('backend/assets/img/favicon.png')}}" rel="shortcut icon" />
 
+  <link href="{{asset('backend/assets/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{asset('backend/assets/plugins/data-tables/responsive.datatables.min.css')}}" rel="stylesheet">
+<!-- <link href="{{asset('backend/https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css')}}"> -->
+
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
   -->
@@ -127,6 +131,23 @@
             }
             @endif
         </script>
+
+
+    <script src="{{asset('backend/assets/plugins/data-tables/jquery.datatables.min.js')}}"></script>
+<script src="{{asset('backend/assets/plugins/data-tables/datatables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('backend/assets/plugins/data-tables/datatables.responsive.min.js')}}"></script>
+
+  <script>
+  jQuery(document).ready(function() {
+  jQuery('#responsive-data-table').DataTable({
+   "aLengthMenu": [[20, 30, 50, 75, -1], [20, 30, 50, 75, "All"]],
+   "pageLength": 20,
+   "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+  });
+ });
+  </script>
+
+
 
 
 

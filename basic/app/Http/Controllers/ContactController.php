@@ -84,8 +84,14 @@ class ContactController extends Controller
             'message' => $request->message,       
              'created_at'=> Carbon::now()
          ]);
- 
-         return Redirect()->back()->with('success', 'Your Message Send Successfull ');
+
+         $notification = array(
+            'message' => 'Your Message Send Successfull ',
+            'alert-type' => 'success'
+        );
+
+        return Redirect()->back()->with($notification);
+        
          
     }
 
